@@ -132,15 +132,15 @@ class Lambdasian {
 class Instructor extends Lambdasian {
   constructor(attributes){
     super(attributes);
-    this.specialty=attributes.specialty,
-    this.favLanguage=attributes.favLanguage,
-    this.catchPhrase=attributes.catchPhrase
+    this.specialty = attributes.specialty,
+    this.favLanguage = attributes.favLanguage,
+    this.catchPhrase = attributes.catchPhrase
   }
-  demo(){
-    return `Today we are learning about ${this.favLanguage}`
+  demo(subject){
+    return `Today we are learning about ${subject}`
   }
-  grade(){
-    return `${this.name} receives a perfect score on ${this.specialty}`
+  grade(student,subject){
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
@@ -162,18 +162,18 @@ class Instructor extends Lambdasian {
 class Student extends Lambdasian{
   constructor(attributes){
     super(attributes);
-    this.previousBackground=attributes.previousBackground,
-    this.className=attributes.className,
-    this.favSubjects=attributes.favSubjects
+    this.previousBackground = attributes.previousBackground,
+    this.className = attributes.className,
+    this.favSubjects = attributes.favSubjects
   }
   listSubjects(){
     return `Loving ${this.favSubjects}!`
   }
-  PRAssignment(){
-    return `${this.name} has submitted a PR for ${this.className}`
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`
   }
-  sprintChallenge(){
-    return `${this.name} has begun sprint challenge on ${this.className}`
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`
   }
 }
 
@@ -196,11 +196,11 @@ class ProjectManager extends Instructor {
     this.gradClassName = attributes.gradClassName,
     this.favInstructor = attributes.favInstructor
   }
-  standUp(){
-    `${this.favInstructor} announces to ${this.gradClassName}, @channel standy times!`
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`
   }
-  debugsCode(){
-    return `${this.favInstructor} debugs ${this.name}'s code on ${this.gradClassName}`
+  debugsCode(student,subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
 
