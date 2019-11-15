@@ -83,15 +83,29 @@ class Car {
   fill(gallons){
     this.tank = this.tank + gallons;
   }
-  drive(distance){
-    if (this.odometer += distance) {
-      this.tank -= distance / this.milesPerGallon;
-    } else if (this.tank =0){
-    console.log(`I ran out of fuel at ${this.odometer} miles!`);
-    }
-  }
-}
+//   drive(distance){
+//     if (distance < this.tank * this.milesPerGallon){
+//       this.odometer += distance;
+//       this.tank -= distance / this.milesPerGallon;
 
+//     } else if (distance >= this.tank * this.milesPerGallon) {
+//       this.odometer += this.tank * this.milesPerGallon;
+//       this.tank -= this.milesPerGallon * this.odometer;
+//       this.tank = 0;
+//     }
+//     return console.log(`I ran out of fuel at ${this.odometer} miles!`);
+//   }
+// }
+  drive(distance){
+    this.odometer += distance;
+    this.tank -= Math.ceil(distance / this.milesPerGallon);
+  if (this.tank <= 0){
+    this.odometer+=this.tank
+    this.tank = 0
+  return `I ran out of fuel at ${this.odometer} miles!`
+  }
+ }
+}
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -164,7 +178,8 @@ class Student extends Lambdasian{
     super(attributes);
     this.previousBackground = attributes.previousBackground,
     this.className = attributes.className,
-    this.favSubjects = attributes.favSubjects
+    this.favSubjects = attributes.favSubjects,
+    this.grade = 90
   }
   listSubjects(){
     return `Loving ${this.favSubjects}!`
